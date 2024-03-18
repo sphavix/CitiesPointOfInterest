@@ -30,3 +30,4 @@ H:\DevOps\Learning\dotnet\PluralSight\CityPointOfInterest\CityPointOfInterestApi
 H:\DevOps\Learning\dotnet\PluralSight\CityPointOfInterest\CityPointOfInterestApi\obj\Debug\net8.0\CityPointOfInterestApi.pdb
 H:\DevOps\Learning\dotnet\PluralSight\CityPointOfInterest\CityPointOfInterestApi\obj\Debug\net8.0\CityPointOfInterestApi.genruntimeconfig.cache
 H:\DevOps\Learning\dotnet\PluralSight\CityPointOfInterest\CityPointOfInterestApi\obj\Debug\net8.0\ref\CityPointOfInterestApi.dll
+H:\DevOps\Learning\dotnet\PluralSight\CityPointOfInterest\CityPointOfInterestApi\obj\Debug\net8.0\CityPointOfInterestApi.sourcelink.json
