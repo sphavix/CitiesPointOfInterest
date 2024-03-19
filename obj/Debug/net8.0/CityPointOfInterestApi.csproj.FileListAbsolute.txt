@@ -68,3 +68,14 @@ H:\DevOps\Learning\dotnet\PluralSight\CityPointOfInterest\CitiesPointOfInterest\
 H:\DevOps\Learning\dotnet\PluralSight\CityPointOfInterest\CitiesPointOfInterest\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 H:\DevOps\Learning\dotnet\PluralSight\CityPointOfInterest\CitiesPointOfInterest\bin\Debug\net8.0\Newtonsoft.Json.dll
 H:\DevOps\Learning\dotnet\PluralSight\CityPointOfInterest\CitiesPointOfInterest\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+H:\DevOps\Learning\dotnet\PluralSight\CityPointOfInterest\CitiesPointOfInterest\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+H:\DevOps\Learning\dotnet\PluralSight\CityPointOfInterest\CitiesPointOfInterest\bin\Debug\net8.0\Serilog.dll
+H:\DevOps\Learning\dotnet\PluralSight\CityPointOfInterest\CitiesPointOfInterest\bin\Debug\net8.0\Serilog.AspNetCore.dll
+H:\DevOps\Learning\dotnet\PluralSight\CityPointOfInterest\CitiesPointOfInterest\bin\Debug\net8.0\Serilog.Extensions.Hosting.dll
+H:\DevOps\Learning\dotnet\PluralSight\CityPointOfInterest\CitiesPointOfInterest\bin\Debug\net8.0\Serilog.Extensions.Logging.dll
+H:\DevOps\Learning\dotnet\PluralSight\CityPointOfInterest\CitiesPointOfInterest\bin\Debug\net8.0\Serilog.Formatting.Compact.dll
+H:\DevOps\Learning\dotnet\PluralSight\CityPointOfInterest\CitiesPointOfInterest\bin\Debug\net8.0\Serilog.Settings.Configuration.dll
+H:\DevOps\Learning\dotnet\PluralSight\CityPointOfInterest\CitiesPointOfInterest\bin\Debug\net8.0\Serilog.Sinks.Console.dll
+H:\DevOps\Learning\dotnet\PluralSight\CityPointOfInterest\CitiesPointOfInterest\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
+H:\DevOps\Learning\dotnet\PluralSight\CityPointOfInterest\CitiesPointOfInterest\bin\Debug\net8.0\Serilog.Sinks.File.dll
+H:\DevOps\Learning\dotnet\PluralSight\CityPointOfInterest\CitiesPointOfInterest\bin\Debug\net8.0\appsettings.Production.json
