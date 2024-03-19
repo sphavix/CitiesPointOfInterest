@@ -34,5 +34,25 @@ namespace CityPointOfInterest.Controllers
             var bytes = System.IO.File.ReadAllBytes(pathToFile);
             return File(bytes, contentType, Path.GetFileName(pathToFile));
         }
+
+        [HttpPost]
+        public async Task<ActionResult> UploadFile(IFormFile file)
+        {
+            //validate file length to limit the large files being uploaded
+            if(file.Length == 0 || file.Length > 20971520 || file.ContentType != "application/pdf")
+            {
+                return BadRequest("Please upload a valid file.");
+            }
+
+            //Create a file path
+            var path = Path.Combine(Directory.GetCurrentDirectory(), $"uploaded_file_{Guid.NewGuid()}.pdf");
+
+            using(var stream = new FileStream(path, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+
+            return Ok("File uploaded successfully.");
+        }
     }
 }

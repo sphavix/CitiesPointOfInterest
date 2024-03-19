@@ -64,3 +64,7 @@ H:\DevOps\Learning\dotnet\PluralSight\CityPointOfInterest\CitiesPointOfInterest\
 H:\DevOps\Learning\dotnet\PluralSight\CityPointOfInterest\CitiesPointOfInterest\obj\Debug\net8.0\CityPointOfInterestApi.pdb
 H:\DevOps\Learning\dotnet\PluralSight\CityPointOfInterest\CitiesPointOfInterest\obj\Debug\net8.0\CityPointOfInterestApi.genruntimeconfig.cache
 H:\DevOps\Learning\dotnet\PluralSight\CityPointOfInterest\CitiesPointOfInterest\obj\Debug\net8.0\ref\CityPointOfInterestApi.dll
+H:\DevOps\Learning\dotnet\PluralSight\CityPointOfInterest\CitiesPointOfInterest\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
+H:\DevOps\Learning\dotnet\PluralSight\CityPointOfInterest\CitiesPointOfInterest\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+H:\DevOps\Learning\dotnet\PluralSight\CityPointOfInterest\CitiesPointOfInterest\bin\Debug\net8.0\Newtonsoft.Json.dll
+H:\DevOps\Learning\dotnet\PluralSight\CityPointOfInterest\CitiesPointOfInterest\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
