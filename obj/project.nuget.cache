@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HVvCreudr4HpW5bAj+lhMG8RhBPbctaYowm3edonDv/eNTa1rggAq7qr9PEvILFZgaDoNtGk/zgBuQgziA22oA==",
+  "dgSpecHash": "yoz3J4l1utYXBJ71lNwf5iaepTD0BsTYslGkXWubJshZqYfwpDPT8NhvYvMufA6Cqv2bVANgcgHaiL+2/HNimA==",
   "success": true,
-  "projectFilePath": "H:\\DevOps\\Learning\\dotnet\\PluralSight\\CityPointOfInterest\\CityPointOfInterestApi\\CityPointOfInterestApi.csproj",
+  "projectFilePath": "H:\\DevOps\\Learning\\dotnet\\PluralSight\\CityPointOfInterest\\CitiesPointOfInterest\\CityPointOfInterestApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\siphamandla.zolakhe\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\siphamandla.zolakhe\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
