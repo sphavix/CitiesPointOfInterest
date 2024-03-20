@@ -1,6 +1,8 @@
 using CityPointOfInterest;
+using CityPointOfInterest.DataContext;
 using CityPointOfInterest.Services;
 using Microsoft.AspNetCore.StaticFiles;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 
 Log.Logger = new LoggerConfiguration()
@@ -23,6 +25,10 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<FileExtensionContentTypeProvider>();
 
 builder.Services.AddSingleton<CitiesDataStore>();
+builder.Services.AddDbContext<CityInfoDbContext>(options =>
+{
+    options.UseSqlite(builder.Configuration["ConnectionStrings:CityInfoDBConnectionString"]);
+});
 //#if DEBUG
 builder.Services.AddTransient<IEmailService, EmailService>();
 // #else
