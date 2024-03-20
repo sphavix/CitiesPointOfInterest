@@ -1,4 +1,5 @@
 using CityPointOfInterest.Models;
+using CityPointOfInterest.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CityPointOfInterest.Controllers
@@ -7,25 +8,41 @@ namespace CityPointOfInterest.Controllers
     [Route("api/cities")]
     public class CitiesController : ControllerBase
     {
-        private readonly CitiesDataStore _citiesDataStore;
+        private readonly ICityRepository _repository;
 
-        public CitiesController(CitiesDataStore citiesDataStore)
+        public CitiesController(ICityRepository repository)
         {
-            _citiesDataStore = citiesDataStore ?? throw new ArgumentNullException(nameof(citiesDataStore));  
+            _repository = repository ?? throw new ArgumentNullException(nameof(repository));  
         }
+
+
         [HttpGet]
-        public ActionResult<IEnumerable<CityDto>> GetCities()
+        public async Task<ActionResult<IEnumerable<CityWithNoPointsOfInterestDto>>> GetCities()
         {
-            return Ok(_citiesDataStore.Cities); // return Ok(CitiesDataStore.Current.Cities.ToList() as IEnumerable<CityDto> ?? new List<CityDto>(0) as IEnumerable<CityDto> ?? new List<CityDto>(0) as IEnumerable<CityDto> ?? new List<
+           var cities = await _repository.GetCitiesAsync();
+
+           var results = new List<CityWithNoPointsOfInterestDto>();
+           foreach(var city in cities)
+           {
+                results.Add(new CityWithNoPointsOfInterestDto
+                {
+                    Id =city.Id, 
+                    Name = city.Name, 
+                    Description = city.Description
+                });
+           }
+
+           return Ok(results);
+
         }
 
-        [HttpGet("{id}")]
-        public ActionResult<CityDto> GetCity(int id)
-        {
-            var city = _citiesDataStore.Cities.FirstOrDefault(c => c.Id == id);
+        // [HttpGet("{id}")]
+        // public ActionResult<CityDto> GetCity(int id)
+        // {
+        //     var city = _citiesDataStore.Cities.FirstOrDefault(c => c.Id == id);
 
-            if(city is null) return NotFound();
-            return Ok(city);
-        }
+        //     if(city is null) return NotFound();
+        //     return Ok(city);
+        // }
     }
 }

@@ -27,8 +27,12 @@ builder.Services.AddSingleton<FileExtensionContentTypeProvider>();
 builder.Services.AddSingleton<CitiesDataStore>();
 builder.Services.AddDbContext<CityInfoDbContext>(options =>
 {
-    options.UseSqlite(builder.Configuration["ConnectionStrings:CityInfoDBConnectionString"]);
+    options.UseSqlite(builder.Configuration.GetConnectionString("CityInfoDBConnectionString"));
 });
+
+builder.Services.AddScoped<ICityRepository, CityRepository>();
+
+
 //#if DEBUG
 builder.Services.AddTransient<IEmailService, EmailService>();
 // #else
