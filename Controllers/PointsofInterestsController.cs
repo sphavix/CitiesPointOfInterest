@@ -3,6 +3,7 @@ using System.Globalization;
 using AutoMapper;
 using CityPointOfInterest.Models;
 using CityPointOfInterest.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,6 +11,7 @@ namespace CityPointOfInterest.Controllers
 {
     [ApiController]
     [Route("api/cities/{cityId}/pointsofinterest")]
+    [Authorize]
     public class PointsOfInterestsController : ControllerBase
     {
         private readonly ILogger<PointsOfInterestsController> _logger;

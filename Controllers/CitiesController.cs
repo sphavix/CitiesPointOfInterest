@@ -2,12 +2,14 @@ using System.Text.Json;
 using AutoMapper;
 using CityPointOfInterest.Models;
 using CityPointOfInterest.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CityPointOfInterest.Controllers
 {
     [ApiController]
     [Route("api/cities")]
+    [Authorize]
     public class CitiesController : ControllerBase
     {
         private readonly ICityRepository _repository;

@@ -1,8 +1,10 @@
+using System.Text;
 using CityPointOfInterest;
 using CityPointOfInterest.DataContext;
 using CityPointOfInterest.Services;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Serilog;
 
 Log.Logger = new LoggerConfiguration()
@@ -11,11 +13,24 @@ Log.Logger = new LoggerConfiguration()
     .WriteTo.File("logs/cityinfo.txt", rollingInterval: RollingInterval.Day).CreateLogger();
 
 var builder = WebApplication.CreateBuilder(args);
-// builder.Logging.ClearProviders();
-// builder.Logging.AddConsole();
+
+// Add services to the container.
+builder.Services.AddAuthentication("Bearer").AddJwtBearer(options => 
+{
+    options.TokenValidationParameters = new()
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["Authentication:Issuer"],
+        ValidAudience = builder.Configuration["Authentication:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Convert.FromBase64String(
+            builder.Configuration["Authentication:SecretKey"]))
+    };
+});
 
 builder.Host.UseSerilog();
-// Add services to the container.
+
 
 builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddProblemDetails();
@@ -62,6 +77,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
