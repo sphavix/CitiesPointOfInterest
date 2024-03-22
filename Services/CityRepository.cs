@@ -12,9 +12,24 @@ namespace CityPointOfInterest.Services
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public async Task<IEnumerable<City>> GetCitiesAsync()
+        public async Task<List<City>> GetCitiesAsync()
         {
-            return await _context.Cities.OrderBy(x => x.Name).ToListAsync();
+            try
+            {
+                using(_context)
+                {
+                    return await _context.Cities.OrderBy(x => x.CityName).ToListAsync();
+                }
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task<bool> CityExistsAsync(int CityId)
+        {
+            return await _context.Cities.AnyAsync(x => x.Id == CityId);
         }
 
         public async Task<City?> GetCityAsync(int CityId, bool PointOfInterest)
@@ -36,6 +51,28 @@ namespace CityPointOfInterest.Services
         public async Task<IEnumerable<PointOfInterest>> GetPointsOfInterestForCityAsync(int cityId)
         {
             return await _context.PointsOfInterest.Where(x => x.CityId == cityId).ToListAsync();
+        }
+
+        public async Task AddPointOfInterestForCityAsync(int CityId, PointOfInterest pointOfInterest)
+        {
+            var city = await GetCityAsync(CityId, false);
+
+            if(city is not null)
+            {
+                city.PointsOfInterest.Add(pointOfInterest);
+            }
+            await SaveChangesAsync();
+        }
+
+        public async void DeletePointOfInterest(PointOfInterest pointOfInterest)
+        {
+            _context.PointsOfInterest.Remove(pointOfInterest);
+            await SaveChangesAsync(); 
+        }
+
+        public async Task<bool> SaveChangesAsync()
+        {
+            return await _context.SaveChangesAsync() >= 0; // returns true if at least one row is affected.
         }
     }
 }

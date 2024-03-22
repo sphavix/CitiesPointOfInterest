@@ -11,16 +11,16 @@ namespace CityPointOfInterest.Entities
 
         [Required]
         [MaxLength(50)]
-        public string Name {get; set;} = string.Empty;
+        public string CityName {get; set;} = string.Empty;
 
         [MaxLength(200)]  // optional attribute, but good practice to use it.
         public string? Description {get; set;}
 
         public ICollection<PointOfInterest> PointsOfInterest {get; set;} = new List<PointOfInterest>();
 
-        public City(string name)
+        public City(string cityName)
         {
-            Name = name;
+            CityName = cityName;
         }
     }
 }

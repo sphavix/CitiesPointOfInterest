@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "mYze7AdmaRzb2oIahT7LCGMzUhaDkQpQjsSa99DJEwub1/wk83E5D52ON9BAdY75KJynWqdR9AZDWq5T6KAkqQ==",
+  "dgSpecHash": "L2leveEz5hJincFSPxoHia3Q8y9t+5qhaTMlKlZXBGxGwuI79zCIgYcEDdZAscR5TIt9C6KPG5sj0wYUArCCzQ==",
   "success": true,
   "projectFilePath": "H:\\DevOps\\Learning\\dotnet\\PluralSight\\CityPointOfInterest\\CitiesPointOfInterest\\CityPointOfInterestApi.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\siphamandla.zolakhe\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\siphamandla.zolakhe\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\siphamandla.zolakhe\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\8.0.3\\microsoft.aspnetcore.jsonpatch.8.0.3.nupkg.sha512",
     "C:\\Users\\siphamandla.zolakhe\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\8.0.3\\microsoft.aspnetcore.mvc.newtonsoftjson.8.0.3.nupkg.sha512",

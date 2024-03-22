@@ -25,14 +25,19 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<FileExtensionContentTypeProvider>();
 
 builder.Services.AddSingleton<CitiesDataStore>();
+var configConnString = new ConfigurationBuilder().SetBasePath(builder.Environment.ContentRootPath)
+                                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                                .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true)
+                                .AddEnvironmentVariables()
+                                .Build();
 builder.Services.AddDbContext<CityInfoDbContext>(options =>
 {
-    options.UseSqlite(builder.Configuration.GetConnectionString("CityInfoDBConnectionString"));
+    options.UseSqlite(configConnString.GetConnectionString("CityInfoDBConnectionString"));
 });
 
 builder.Services.AddScoped<ICityRepository, CityRepository>();
 
-
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 //#if DEBUG
 builder.Services.AddTransient<IEmailService, EmailService>();
 // #else

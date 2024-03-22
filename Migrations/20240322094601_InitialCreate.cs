@@ -7,7 +7,7 @@
 namespace CityPointOfInterestApi.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigration : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,7 +18,7 @@ namespace CityPointOfInterestApi.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
+                    CityName = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
                     Description = table.Column<string>(type: "TEXT", maxLength: 200, nullable: true)
                 },
                 constraints: table =>
@@ -32,7 +32,7 @@ namespace CityPointOfInterestApi.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
+                    PointOfInterestName = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
                     Description = table.Column<string>(type: "TEXT", maxLength: 200, nullable: true),
                     CityId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
@@ -49,17 +49,17 @@ namespace CityPointOfInterestApi.Migrations
 
             migrationBuilder.InsertData(
                 table: "Cities",
-                columns: new[] { "Id", "Description", "Name" },
+                columns: new[] { "Id", "CityName", "Description" },
                 values: new object[,]
                 {
-                    { 1, "The one with that big park.", "New York City" },
-                    { 2, "The one with the cathedral that was never really finished.", "Antwerp" },
-                    { 3, "The one with that big tower.", "Paris" }
+                    { 1, "New York City", "The one with that big park." },
+                    { 2, "Antwerp", "The one with the cathedral that was never really finished." },
+                    { 3, "Paris", "The one with that big tower." }
                 });
 
             migrationBuilder.InsertData(
                 table: "PointsOfInterest",
-                columns: new[] { "Id", "CityId", "Description", "Name" },
+                columns: new[] { "Id", "CityId", "Description", "PointOfInterestName" },
                 values: new object[,]
                 {
                     { 1, 1, "The most visited urban park in the United States.", "Central Park" },

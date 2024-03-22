@@ -22,13 +22,13 @@ namespace CityPointOfInterestApi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Description")
-                        .HasMaxLength(200)
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Name")
+                    b.Property<string>("CityName")
                         .IsRequired()
                         .HasMaxLength(50)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(200)
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -39,20 +39,20 @@ namespace CityPointOfInterestApi.Migrations
                         new
                         {
                             Id = 1,
-                            Description = "The one with that big park.",
-                            Name = "New York City"
+                            CityName = "New York City",
+                            Description = "The one with that big park."
                         },
                         new
                         {
                             Id = 2,
-                            Description = "The one with the cathedral that was never really finished.",
-                            Name = "Antwerp"
+                            CityName = "Antwerp",
+                            Description = "The one with the cathedral that was never really finished."
                         },
                         new
                         {
                             Id = 3,
-                            Description = "The one with that big tower.",
-                            Name = "Paris"
+                            CityName = "Paris",
+                            Description = "The one with that big tower."
                         });
                 });
 
@@ -69,7 +69,7 @@ namespace CityPointOfInterestApi.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("PointOfInterestName")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
@@ -86,49 +86,49 @@ namespace CityPointOfInterestApi.Migrations
                             Id = 1,
                             CityId = 1,
                             Description = "The most visited urban park in the United States.",
-                            Name = "Central Park"
+                            PointOfInterestName = "Central Park"
                         },
                         new
                         {
                             Id = 2,
                             CityId = 3,
                             Description = "A wrold-class tower on the Champ de Mars.",
-                            Name = "Eiffel Tower"
+                            PointOfInterestName = "Eiffel Tower"
                         },
                         new
                         {
                             Id = 3,
                             CityId = 3,
                             Description = "The world's largest museum.",
-                            Name = "The Louvre"
+                            PointOfInterestName = "The Louvre"
                         },
                         new
                         {
                             Id = 4,
                             CityId = 3,
                             Description = "A modern museum.",
-                            Name = "Museum of Modern Art"
+                            PointOfInterestName = "Museum of Modern Art"
                         },
                         new
                         {
                             Id = 5,
                             CityId = 2,
                             Description = "The most visited urban park in the United States.",
-                            Name = "Central Park"
+                            PointOfInterestName = "Central Park"
                         },
                         new
                         {
                             Id = 6,
                             CityId = 2,
                             Description = "A Gothic style cathedral, conceived by architects Jan and Pieter Appelmans.",
-                            Name = "Cathedral"
+                            PointOfInterestName = "Cathedral"
                         },
                         new
                         {
                             Id = 7,
                             CityId = 1,
                             Description = "A 102-story skyscraper located in Midtown Manhattan.",
-                            Name = "Empire State Building"
+                            PointOfInterestName = "Empire State Building"
                         });
                 });
 

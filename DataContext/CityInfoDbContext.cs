@@ -1,4 +1,5 @@
 using CityPointOfInterest.Entities;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 
 namespace CityPointOfInterest.DataContext
@@ -7,6 +8,7 @@ namespace CityPointOfInterest.DataContext
     {
         public CityInfoDbContext(DbContextOptions<CityInfoDbContext> options) : base(options)
         {
+            //Database.EnsureCreated();
         }
 
         public DbSet<City> Cities { get; set; }
@@ -20,6 +22,19 @@ namespace CityPointOfInterest.DataContext
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<City>(c =>
+            {
+                c.HasKey(ci => ci.Id);
+                c.Property(ci => ci.CityName);
+                c.Property(ci => ci.Description);
+            });
+            modelBuilder.Entity<PointOfInterest>(p =>
+            {
+                p.HasKey(pi => pi.Id);
+                p.Property(pi => pi.PointOfInterestName);
+                p.Property(pi => pi.Description);
+            });
+
             modelBuilder.Entity<City>().HasData(
             new City("New York City")
             {
