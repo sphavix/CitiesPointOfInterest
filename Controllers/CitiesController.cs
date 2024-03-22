@@ -1,3 +1,4 @@
+using System.Text.Json;
 using AutoMapper;
 using CityPointOfInterest.Models;
 using CityPointOfInterest.Services;
@@ -12,6 +13,8 @@ namespace CityPointOfInterest.Controllers
         private readonly ICityRepository _repository;
         private readonly IMapper _mapper;
 
+        const int maxPageSize = 20;
+
         public CitiesController(ICityRepository repository, IMapper mapper)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));  
@@ -20,9 +23,17 @@ namespace CityPointOfInterest.Controllers
 
 
         [HttpGet]
-        public async Task<ActionResult<List<CityWithNoPointsOfInterestDto>>> GetCities()
+        public async Task<ActionResult<List<CityWithNoPointsOfInterestDto>>> GetCities([FromQuery]string? name, string? searchQuery,
+            int pageNumber = 1, int pageSize = 10)
         {
-           var cities = await _repository.GetCitiesAsync();
+            if(pageSize > maxPageSize)
+            {
+                pageSize = maxPageSize;
+            }
+           var (cities, paginationMetadata) = await _repository.GetCitiesAsync(name, searchQuery, pageNumber, pageSize);
+
+           //Add the metadat to the response headers
+           Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(paginationMetadata));
 
            return Ok(_mapper.Map<List<CityWithNoPointsOfInterestDto>>(cities));
         }
